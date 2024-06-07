@@ -1,0 +1,19 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly set line endings for specific file types
+*.ts eol=lf
+*.js eol=lf
+*.jsx eol=lf
+*.tsx eol=lf
+*.json eol=lf
+*.css eol=lf
+*.html eol=lf
+*.md eol=lf
+*.cjs eol=lf
+*.gitignore eol=lf
+
+# Ensure Vite config files have LF line endings
+vite.config.ts eol=lf
+.vite.config.ts eol=lf
+.eslintrc.cjs eol=lf
