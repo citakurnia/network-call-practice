@@ -1,20 +1,7 @@
 import { Box, Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { IUsers } from "../../interface";
-import usersUrl from "../../api/api-instance";
 
-export default function UsersDisplay() {
-  const [users, setUsers] = useState<IUsers[]>([]);
-
-  const fetchData = async () => {
-    const { data } = await usersUrl.get("users");
-    setUsers(data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
+export default function UsersDisplay({ users }: { users: IUsers[] }) {
   return (
     <>
       <Box position="relative" height="100vh" pt="100px" pl={10} pr={10}>

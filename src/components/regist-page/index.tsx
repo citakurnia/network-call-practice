@@ -2,6 +2,9 @@ import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { Formik, Form, FormikProps } from "formik";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { increment } from "../redux/counter";
+
 import { IRegister } from "../../interface";
 import FormField from "./form-field";
 import RegisterSchema from "./regist-schema";
@@ -11,6 +14,7 @@ import "react-toastify/ReactToastify.css";
 export default function RegistPage() {
   const initialValues: IRegister = { name: "", email: "", password: "" };
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const register = async (values: IRegister) => {
     await usersUrl.post("users", {
@@ -48,9 +52,10 @@ export default function RegistPage() {
               onSubmit={(values) => {
                 register(values);
                 toast.success("Registration success!", {
-                  position: "top-center",
+                  position: "bottom-center",
                 });
-                setTimeout(() => navigate("/"), 3000);
+                dispatch(increment());
+                setTimeout(() => navigate("/"), 2500);
               }}
             >
               {(props: FormikProps<IRegister>) => {

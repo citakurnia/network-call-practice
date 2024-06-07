@@ -1,7 +1,14 @@
 import { Flex, Spacer, HStack, Box, Heading } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+import { ICount } from "../redux/counter";
 
 export default function NavBar() {
+  const count = useSelector(
+    (state: { counter: ICount }) => state.counter.value
+  );
+
   const bgCol = "pink";
   return (
     <div>
@@ -24,13 +31,14 @@ export default function NavBar() {
             </Heading>
           </Box>
           <Spacer />
-          <HStack spacing="45px">
+          <HStack spacing="10px">
             <Box>
               <Link to="/">
                 <b>Users</b>
               </Link>
             </Box>
-            <Box>
+            <Box color="grey">{count}</Box>
+            <Box pl="40px">
               <Link to="/regist-page">
                 <b>Register Here!</b>
               </Link>
