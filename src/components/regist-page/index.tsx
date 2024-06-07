@@ -6,7 +6,6 @@ import { IRegister } from "../../interface";
 import FormField from "./form-field";
 import RegisterSchema from "./regist-schema";
 import usersUrl from "../../api/api-instance";
-// import axios from "axios";
 import "react-toastify/ReactToastify.css";
 
 export default function RegistPage() {

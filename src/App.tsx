@@ -3,8 +3,6 @@ import RegistPage from "./components/regist-page";
 import UsersDisplay from "./components/users-display";
 import { Route, Routes } from "react-router-dom";
 
-import "./App.css";
-
 function App() {
   return (
     <>
